@@ -1,0 +1,1 @@
+insmod /system/lib/modules/wlan_mt76x8_sdio.ko
