@@ -44,7 +44,41 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/etc/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf \
     vendor/amazon/mantis/proprietary/etc/bluetooth/bt_stack.conf:system/etc/bluetooth/bt_stack.conf \
     vendor/amazon/mantis/proprietary/etc/clatd.conf:system/etc/clatd.conf \
+    vendor/amazon/mantis/proprietary/etc/init/amazond.rc:system/etc/init/amazond.rc \
+    vendor/amazon/mantis/proprietary/etc/init/atrace-server.rc:system/etc/init/atrace-server.rc \
+    vendor/amazon/mantis/proprietary/etc/init/atrace.rc:system/etc/init/atrace.rc \
+    vendor/amazon/mantis/proprietary/etc/init/audioserver.rc:system/etc/init/audioserver.rc \
+    vendor/amazon/mantis/proprietary/etc/init/backup_whitelist.rc:system/etc/init/backup_whitelist.rc \
+    vendor/amazon/mantis/proprietary/etc/init/bootstat.rc:system/etc/init/bootstat.rc \
+    vendor/amazon/mantis/proprietary/etc/init/cameraserver.rc:system/etc/init/cameraserver.rc \
+    vendor/amazon/mantis/proprietary/etc/init/debuggerd.rc:system/etc/init/debuggerd.rc \
+    vendor/amazon/mantis/proprietary/etc/init/dha.rc:system/etc/init/dha.rc \
+    vendor/amazon/mantis/proprietary/etc/init/drmprov.rc:system/etc/init/drmprov.rc \
+    vendor/amazon/mantis/proprietary/etc/init/drmserver.rc:system/etc/init/drmserver.rc \
+    vendor/amazon/mantis/proprietary/etc/init/dumpstate.rc:system/etc/init/dumpstate.rc \
+    vendor/amazon/mantis/proprietary/etc/init/fireos_bootanim.rc:system/etc/init/fireos_bootanim.rc \
+    vendor/amazon/mantis/proprietary/etc/init/fosflags.rc:system/etc/init/fosflags.rc \
+    vendor/amazon/mantis/proprietary/etc/init/gatekeeperd.rc:system/etc/init/gatekeeperd.rc \
+    vendor/amazon/mantis/proprietary/etc/init/installd.rc:system/etc/init/installd.rc \
+    vendor/amazon/mantis/proprietary/etc/init/keystore.rc:system/etc/init/keystore.rc \
+    vendor/amazon/mantis/proprietary/etc/init/lmkd.rc:system/etc/init/lmkd.rc \
+    vendor/amazon/mantis/proprietary/etc/init/logd.rc:system/etc/init/logd.rc \
+    vendor/amazon/mantis/proprietary/etc/init/mdnsd.rc:system/etc/init/mdnsd.rc \
+    vendor/amazon/mantis/proprietary/etc/init/mediacodec.rc:system/etc/init/mediacodec.rc \
+    vendor/amazon/mantis/proprietary/etc/init/mediadrmserver.rc:system/etc/init/mediadrmserver.rc \
+    vendor/amazon/mantis/proprietary/etc/init/mediaextractor.rc:system/etc/init/mediaextractor.rc \
+    vendor/amazon/mantis/proprietary/etc/init/mediaserver.rc:system/etc/init/mediaserver.rc \
+    vendor/amazon/mantis/proprietary/etc/init/mtpd.rc:system/etc/init/mtpd.rc \
+    vendor/amazon/mantis/proprietary/etc/init/netd.rc:system/etc/init/netd.rc \
+    vendor/amazon/mantis/proprietary/etc/init/racoon.rc:system/etc/init/racoon.rc \
+    vendor/amazon/mantis/proprietary/etc/init/servicemanager.rc:system/etc/init/servicemanager.rc \
+    vendor/amazon/mantis/proprietary/etc/init/surfaceflinger.rc:system/etc/init/surfaceflinger.rc \
     vendor/amazon/mantis/proprietary/etc/init/timeupdate.rc:system/etc/init/timeupdate.rc \
+    vendor/amazon/mantis/proprietary/etc/init/uncrypt.rc:system/etc/init/uncrypt.rc \
+    vendor/amazon/mantis/proprietary/etc/init/vdc.rc:system/etc/init/vdc.rc \
+    vendor/amazon/mantis/proprietary/etc/init/virtual_partition.rc:system/etc/init/virtual_partition.rc \
+    vendor/amazon/mantis/proprietary/etc/init/vold.rc:system/etc/init/vold.rc \
+    vendor/amazon/mantis/proprietary/etc/init/wifi_log_levels.rc:system/etc/init/wifi_log_levels.rc \
     vendor/amazon/mantis/proprietary/etc/wifi/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
     vendor/amazon/mantis/proprietary/etc/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
     vendor/amazon/mantis/proprietary/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
@@ -82,7 +116,9 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/lib/libbluetooth_jni.so:system/lib/libbluetooth_jni.so \
     vendor/amazon/mantis/proprietary/lib/libbluetooth_mtk.so:system/lib/libbluetooth_mtk.so \
     vendor/amazon/mantis/proprietary/lib/libbt-vendor.so:system/lib/libbt-vendor.so \
+    vendor/amazon/mantis/proprietary/lib/libcommon_time_client.so:system/lib/libcommon_time_client.so \
     vendor/amazon/mantis/proprietary/lib/libdha-aidl.so:system/lib/libdha-aidl.so \
+    vendor/amazon/mantis/proprietary/lib/libdrm.so:system/lib/libdrm.so \
     vendor/amazon/mantis/proprietary/lib/libdrmframework.so:system/lib/libdrmframework.so \
     vendor/amazon/mantis/proprietary/lib/libdrmframework_jni.so:system/lib/libdrmframework_jni.so \
     vendor/amazon/mantis/proprietary/lib/libdrmprov-aidl.so:system/lib/libdrmprov-aidl.so \
@@ -97,16 +133,19 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/lib/libmediacodeclogger.so:system/lib/libmediacodeclogger.so \
     vendor/amazon/mantis/proprietary/lib/libmediacodecloggerservice.so:system/lib/libmediacodecloggerservice.so \
     vendor/amazon/mantis/proprietary/lib/libmediadrm.so:system/lib/libmediadrm.so \
+    vendor/amazon/mantis/proprietary/lib/libmediaextension.so:system/lib/libmediaextension.so \
     vendor/amazon/mantis/proprietary/lib/libopus.so:system/lib/libopus.so \
     vendor/amazon/mantis/proprietary/lib/libopus_jni.AMAZON.so:system/lib/libopus_jni.AMAZON.so \
     vendor/amazon/mantis/proprietary/lib/libopus_jni.so:system/lib/libopus_jni.so \
     vendor/amazon/mantis/proprietary/lib/libopuscodec.so:system/lib/libopuscodec.so \
+    vendor/amazon/mantis/proprietary/lib/libqservice.so:system/lib/libqservice.so \
     vendor/amazon/mantis/proprietary/lib/libradio.so:system/lib/libradio.so \
     vendor/amazon/mantis/proprietary/lib/libradio_metadata.so:system/lib/libradio_metadata.so \
     vendor/amazon/mantis/proprietary/lib/libradioservice.so:system/lib/libradioservice.so \
     vendor/amazon/mantis/proprietary/lib/libreference-ril.so:system/lib/libreference-ril.so \
     vendor/amazon/mantis/proprietary/lib/librs_jni.so:system/lib/librs_jni.so \
     vendor/amazon/mantis/proprietary/lib/librtp_jni.so:system/lib/librtp_jni.so \
+    vendor/amazon/mantis/proprietary/lib/libserviceutility.so:system/lib/libserviceutility.so \
     vendor/amazon/mantis/proprietary/lib/libsmartvolume.so:system/lib/libsmartvolume.so \
     vendor/amazon/mantis/proprietary/lib/libsnappydb-native.so:system/lib/libsnappydb-native.so \
     vendor/amazon/mantis/proprietary/lib/libsoundtrigger.so:system/lib/libsoundtrigger.so \
@@ -183,6 +222,7 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/vendor/lib/libMtkOmxCore.so:vendor/lib/libMtkOmxCore.so \
     vendor/amazon/mantis/proprietary/vendor/lib/libMtkOmxMp3Dec.so:vendor/lib/libMtkOmxMp3Dec.so \
     vendor/amazon/mantis/proprietary/vendor/lib/libMtkOmxVdecEx.so:vendor/lib/libMtkOmxVdecEx.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libMtkOmxVenc.so:vendor/lib/libMtkOmxVenc.so \
     vendor/amazon/mantis/proprietary/vendor/lib/libOpenCL.so:vendor/lib/libOpenCL.so \
     vendor/amazon/mantis/proprietary/vendor/lib/libPVROCL.so:vendor/lib/libPVROCL.so \
     vendor/amazon/mantis/proprietary/vendor/lib/libPVRScopeServices.so:vendor/lib/libPVRScopeServices.so \

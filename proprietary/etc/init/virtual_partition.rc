@@ -1,0 +1,39 @@
+on post-fs-data
+    # folder for image file
+    mkdir /data/vp 0700 root root
+    # mountpoint for dedicated storage
+    mkdir /data/metrics 0770 logd log
+
+on nonencrypted
+    start vpm_mount
+
+on property:vold.decrypt=trigger_restart_framework
+    start vpm_mount
+
+on property:vpartition.status.metrics=ready
+    restorecon_recursive /data/metrics/
+    chown logd log /data/metrics
+    chmod 0770 /data/metrics
+    start logd-reinitLUI
+
+on property:vpartition.status.metrics=unmount
+    start vpm_unmount
+
+on property:vpartition.status.metrics=corrupted
+    start vpm_remove
+
+# service name has length limit of 16
+service vpm_mount /system/bin/vpartition 10 /data/vp/metrics.img /data/metrics rw
+    disabled
+    oneshot
+    seclabel u:r:vpartition:s0
+
+service vpm_unmount /system/bin/vpartition 0 /data/vp/metrics.img /data/metrics rw
+    disabled
+    oneshot
+    seclabel u:r:vpartition:s0
+
+service vpm_remove /system/bin/vpartition -1 /data/vp/metrics.img /data/metrics rw
+    disabled
+    oneshot
+    seclabel u:r:vpartition:s0

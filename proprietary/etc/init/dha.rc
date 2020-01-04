@@ -1,0 +1,15 @@
+service dha_service /system/bin/fireos-dha
+    class core
+    user keystore
+    group keystore drmrpc readproc
+    writepid /dev/cpuset/foreground/tasks
+
+service dha_self_test /system/bin/amzn_dha_self_test.sh
+    user keystore
+    group keystore drmrpc readproc
+    oneshot
+    disabled
+
+# Start DHA self-test after boot completes
+on property:sys.boot_completed=1
+    start dha_self_test

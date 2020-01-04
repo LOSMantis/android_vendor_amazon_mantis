@@ -1,0 +1,6 @@
+service amazonfiled /system/bin/amazonfiled
+    class late_start
+    socket amazonfiled stream 600 system system
+
+on post-fs-data
+    mkdir /data/securedStorageLocation 0771 system amz_group

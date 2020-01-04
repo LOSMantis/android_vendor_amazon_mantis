@@ -1,0 +1,10 @@
+service bootanim /system/bin/fireos_bootanimation
+    class core
+    user graphics
+    group graphics audio amz_group
+    disabled
+    oneshot
+    writepid /dev/stune/top-app/tasks
+
+on post-fs-data
+    mkdir /data/bootanim 0771 system amz_group

@@ -1,0 +1,5 @@
+service wifi_log_levels /system/bin/wifi_log_levels.sh
+    class late_start
+    user root
+    group root system
+    writepid /dev/cpuset/system-background/tasks /dev/cpuctl/bg_non_interactive/tasks

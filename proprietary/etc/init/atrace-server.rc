@@ -1,0 +1,23 @@
+service dump-atrace /system/bin/atrace-server -d -C
+    class main
+    user root
+    group root
+    seclabel u:r:dumpatrace:s0
+    disabled
+    oneshot
+
+service setup-atrace /system/bin/atrace-server -i -C
+    class main
+    user root
+    group root
+    seclabel u:r:dumpatrace:s0
+    disabled
+    oneshot
+
+service stop-atrace /system/bin/atrace-server -e
+    class main
+    user root
+    group root
+    seclabel u:r:dumpatrace:s0
+    disabled
+    oneshot
