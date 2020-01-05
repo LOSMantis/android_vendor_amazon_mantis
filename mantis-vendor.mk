@@ -157,7 +157,6 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/lib/libwebviewchromium_loader.so:system/lib/libwebviewchromium_loader.so \
     vendor/amazon/mantis/proprietary/lib/libwebviewchromium_plat_support.so:system/lib/libwebviewchromium_plat_support.so \
     vendor/amazon/mantis/proprietary/lib/libwebviewextchromium.so:system/lib/libwebviewextchromium.so \
-    vendor/amazon/mantis/proprietary/lib/libwifi-service.so:system/lib/libwifi-service.so \
     vendor/amazon/mantis/proprietary/lib/libwifidiags.so:system/lib/libwifidiags.so \
     vendor/amazon/mantis/proprietary/lib/libwifidiags_jniwrapper.so:system/lib/libwifidiags_jniwrapper.so \
     vendor/amazon/mantis/proprietary/lib/libwlfAmzn.so:system/lib/libwlfAmzn.so \
