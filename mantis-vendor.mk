@@ -150,6 +150,7 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/lib/libsnappydb-native.so:system/lib/libsnappydb-native.so \
     vendor/amazon/mantis/proprietary/lib/libsoundtrigger.so:system/lib/libsoundtrigger.so \
     vendor/amazon/mantis/proprietary/lib/libsoundtriggerservice.so:system/lib/libsoundtriggerservice.so \
+    vendor/amazon/mantis/proprietary/lib/libusb.so:system/lib/libusb.so \
     vendor/amazon/mantis/proprietary/lib/libvulkan.so:system/lib/libvulkan.so \
     vendor/amazon/mantis/proprietary/lib/libwakewordserver_jni.AMAZON.so:system/lib/libwakewordserver_jni.AMAZON.so \
     vendor/amazon/mantis/proprietary/lib/libwakewordserver_jni.so:system/lib/libwakewordserver_jni.so \
