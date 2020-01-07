@@ -105,6 +105,7 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/lib/libaudioeffect_jni.so:system/lib/libaudioeffect_jni.so \
     vendor/amazon/mantis/proprietary/lib/libaudioflinger.so:system/lib/libaudioflinger.so \
     vendor/amazon/mantis/proprietary/lib/libaudiopolicyenginedefault.so:system/lib/libaudiopolicyenginedefault.so \
+    vendor/amazon/mantis/proprietary/lib/libaudiopolicymanagerdefault.so:system/lib/libaudiopolicymanagerdefault.so \
     vendor/amazon/mantis/proprietary/lib/libaudiopolicyservice.so:system/lib/libaudiopolicyservice.so \
     vendor/amazon/mantis/proprietary/lib/libaudioresampler.so:system/lib/libaudioresampler.so \
     vendor/amazon/mantis/proprietary/lib/libaudioroute.so:system/lib/libaudioroute.so \
@@ -113,7 +114,6 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/lib/libaudiostream_jni.AMAZON.so:system/lib/libaudiostream_jni.AMAZON.so \
     vendor/amazon/mantis/proprietary/lib/libaudiostream_jni.so:system/lib/libaudiostream_jni.so \
     vendor/amazon/mantis/proprietary/lib/libaudioutils.so:system/lib/libaudioutils.so \
-    vendor/amazon/mantis/proprietary/lib/libbluetooth_jni.so:system/lib/libbluetooth_jni.so \
     vendor/amazon/mantis/proprietary/lib/libbluetooth_mtk.so:system/lib/libbluetooth_mtk.so \
     vendor/amazon/mantis/proprietary/lib/libbt-vendor.so:system/lib/libbt-vendor.so \
     vendor/amazon/mantis/proprietary/lib/libcommon_time_client.so:system/lib/libcommon_time_client.so \
@@ -122,6 +122,7 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/lib/libdrmframework.so:system/lib/libdrmframework.so \
     vendor/amazon/mantis/proprietary/lib/libdrmframework_jni.so:system/lib/libdrmframework_jni.so \
     vendor/amazon/mantis/proprietary/lib/libdrmprov-aidl.so:system/lib/libdrmprov-aidl.so \
+    vendor/amazon/mantis/proprietary/lib/libeffects.so:system/lib/libeffects.so \
     vendor/amazon/mantis/proprietary/lib/libfilterpack_imageproc.so:system/lib/libfilterpack_imageproc.so \
     vendor/amazon/mantis/proprietary/lib/libfireosthermalservice.so:system/lib/libfireosthermalservice.so \
     vendor/amazon/mantis/proprietary/lib/libfos_mediacodeclogger_jni.so:system/lib/libfos_mediacodeclogger_jni.so \
@@ -134,6 +135,7 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/lib/libmediacodecloggerservice.so:system/lib/libmediacodecloggerservice.so \
     vendor/amazon/mantis/proprietary/lib/libmediadrm.so:system/lib/libmediadrm.so \
     vendor/amazon/mantis/proprietary/lib/libmediaextension.so:system/lib/libmediaextension.so \
+    vendor/amazon/mantis/proprietary/lib/libms12.so:system/lib/libms12.so \
     vendor/amazon/mantis/proprietary/lib/libopus.so:system/lib/libopus.so \
     vendor/amazon/mantis/proprietary/lib/libopus_jni.AMAZON.so:system/lib/libopus_jni.AMAZON.so \
     vendor/amazon/mantis/proprietary/lib/libopus_jni.so:system/lib/libopus_jni.so \
