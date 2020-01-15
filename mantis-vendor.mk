@@ -26,6 +26,7 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/bin/fireos-drmprov:system/bin/fireos-drmprov \
     vendor/amazon/mantis/proprietary/bin/ozwpan.sh:system/bin/ozwpan.sh \
     vendor/amazon/mantis/proprietary/bin/time_update.sh:system/bin/time_update.sh \
+    vendor/amazon/mantis/proprietary/bin/whad_cc:system/bin/whad_cc \
     vendor/amazon/mantis/proprietary/bin/wifi_log_levels.sh:system/bin/wifi_log_levels.sh \
     vendor/amazon/mantis/proprietary/etc/.tp/thermal.policy.conf:system/etc/.tp/thermal.policy.conf \
     vendor/amazon/mantis/proprietary/etc/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf \
@@ -72,12 +73,12 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/lib/hw/amzn_dha.mt8695.so:system/lib/hw/amzn_dha.mt8695.so \
     vendor/amazon/mantis/proprietary/lib/hw/amzn_drmprov.mt8695.so:system/lib/hw/amzn_drmprov.mt8695.so \
     vendor/amazon/mantis/proprietary/lib/hw/audio.btle.default.so:system/lib/hw/audio.btle.default.so \
-    vendor/amazon/mantis/proprietary/lib/hw/audio.primary.default.so:system/lib/hw/audio.primary.default.so \
     vendor/amazon/mantis/proprietary/lib/hw/audio.proxy.default.so:system/lib/hw/audio.proxy.default.so \
     vendor/amazon/mantis/proprietary/lib/hw/local_time.mt8695.so:system/lib/hw/local_time.mt8695.so \
     vendor/amazon/mantis/proprietary/lib/hw/perfboost.mt8695.so:system/lib/hw/perfboost.mt8695.so \
     vendor/amazon/mantis/proprietary/lib/hw/thermal.mt8695.so:system/lib/hw/thermal.mt8695.so \
     vendor/amazon/mantis/proprietary/lib/libamazon_remotes.so:system/lib/libamazon_remotes.so \
+    vendor/amazon/mantis/proprietary/lib/libaudioflinger.so:system/lib/libaudioflinger.so \
     vendor/amazon/mantis/proprietary/lib/libaudiopolicyenginedefault.so:system/lib/libaudiopolicyenginedefault.so \
     vendor/amazon/mantis/proprietary/lib/libaudiopolicymanager.so:system/lib/libaudiopolicymanager.so \
     vendor/amazon/mantis/proprietary/lib/libaudiopolicymanagerdefault.so:system/lib/libaudiopolicymanagerdefault.so \
@@ -91,8 +92,10 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/lib/libdha-aidl.so:system/lib/libdha-aidl.so \
     vendor/amazon/mantis/proprietary/lib/libdrm.so:system/lib/libdrm.so \
     vendor/amazon/mantis/proprietary/lib/libdrmprov-aidl.so:system/lib/libdrmprov-aidl.so \
+    vendor/amazon/mantis/proprietary/lib/liblocalaudiosrcprovider.so:system/lib/liblocalaudiosrcprovider.so \
     vendor/amazon/mantis/proprietary/lib/libmediaextension.so:system/lib/libmediaextension.so \
     vendor/amazon/mantis/proprietary/lib/libms12.so:system/lib/libms12.so \
+    vendor/amazon/mantis/proprietary/lib/libnativeloader.so:system/lib/libnativeloader.so \
     vendor/amazon/mantis/proprietary/lib/libnativesocket_csm_jni.so:system/lib/libnativesocket_csm_jni.so \
     vendor/amazon/mantis/proprietary/lib/libopus.so:system/lib/libopus.so \
     vendor/amazon/mantis/proprietary/lib/libopus_jni.so:system/lib/libopus_jni.so \
@@ -104,6 +107,9 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/lib/libsoundtriggerservice.so:system/lib/libsoundtriggerservice.so \
     vendor/amazon/mantis/proprietary/lib/libwakewordserver_jni.AMAZON.so:system/lib/libwakewordserver_jni.AMAZON.so \
     vendor/amazon/mantis/proprietary/lib/libwakewordserver_jni.so:system/lib/libwakewordserver_jni.so \
+    vendor/amazon/mantis/proprietary/lib/libwebviewchromium_loader.so:system/lib/libwebviewchromium_loader.so \
+    vendor/amazon/mantis/proprietary/lib/libwebviewchromium_plat_support.so:system/lib/libwebviewchromium_plat_support.so \
+    vendor/amazon/mantis/proprietary/lib/libwhadjni.so:system/lib/libwhadjni.so \
     vendor/amazon/mantis/proprietary/lib/modules/btmtksdio.ko:system/lib/modules/btmtksdio.ko \
     vendor/amazon/mantis/proprietary/lib/modules/ozwpan.ko:system/lib/modules/ozwpan.ko \
     vendor/amazon/mantis/proprietary/lib/modules/wlan_mt76x8_sdio.ko:system/lib/modules/wlan_mt76x8_sdio.ko \
