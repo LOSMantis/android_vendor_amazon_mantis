@@ -1,0 +1,4 @@
+libaudiostream_jni.so
+libwakewordserver_jni.so
+libopus_jni.so
+libnativesocket_csm_jni.so

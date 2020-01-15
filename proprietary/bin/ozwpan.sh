@@ -14,7 +14,7 @@ PATH=/sbin:/system/sbin:/system/bin:/system/xbin
 
 while [ 1 ]; do
     if [ -e ${OZWPAN_DEV_FILE} ]; then
-        chown root:amz_group ${OZWPAN_DEV_FILE} ${OZWPAN_SELECT_FILE} ${OZWPAN_MODE_FILE} ${OZWPAN_DEVICE_FILE}
+        chown root:root ${OZWPAN_DEV_FILE} ${OZWPAN_SELECT_FILE} ${OZWPAN_MODE_FILE} ${OZWPAN_DEVICE_FILE}
         chmod 0660 ${OZWPAN_DEV_FILE} ${OZWPAN_SELECT_FILE} ${OZWPAN_MODE_FILE} ${OZWPAN_DEVICE_FILE}
         break
     else

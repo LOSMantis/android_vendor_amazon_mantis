@@ -3,4 +3,4 @@ service amazonfiled /system/bin/amazonfiled
     socket amazonfiled stream 600 system system
 
 on post-fs-data
-    mkdir /data/securedStorageLocation 0771 system amz_group
+    mkdir /data/securedStorageLocation 0771 system root

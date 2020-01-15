@@ -37,4 +37,29 @@ LOCAL_MULTILIB = 32
 LOCAL_SRC_FILES_32 = proprietary/vendor/lib/libdpframework.so
 include $(BUILD_PREBUILT)
 
+include $(CLEAR_VARS)
+LOCAL_MODULE := AtciService
+LOCAL_MODULE_OWNER := amazon
+LOCAL_SRC_FILES := proprietary/vendor/app/AtciService/AtciService.apk
+LOCAL_CERTIFICATE := platform
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := APPS
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/app/
+LOCAL_DEX_PREOPT := false
+LOCAL_MODULE_SUFFIX := .apk
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := DisplayMirroring
+LOCAL_MODULE_OWNER := amazon
+LOCAL_SRC_FILES := proprietary/priv-app/DisplayMirroring/DisplayMirroring.apk
+LOCAL_CERTIFICATE := platform
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := APPS
+LOCAL_MODULE_PATH := $(TARGET_OUT)/priv-app/
+LOCAL_DEX_PREOPT := false
+LOCAL_MODULE_SUFFIX := .apk
+include $(BUILD_PREBUILT)
+
+
 endif
