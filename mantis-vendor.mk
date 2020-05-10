@@ -40,7 +40,6 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/bin/wipe_fos_flags:system/bin/wipe_fos_flags \
     vendor/amazon/mantis/proprietary/bin/wpa_supplicant:system/bin/wpa_supplicant \
     vendor/amazon/mantis/proprietary/etc/.tp/thermal.policy.conf:system/etc/.tp/thermal.policy.conf \
-    vendor/amazon/mantis/proprietary/etc/audio_effects.conf:system/etc/audio_effects.conf \
     vendor/amazon/mantis/proprietary/etc/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf \
     vendor/amazon/mantis/proprietary/etc/bluetooth/bt_stack.conf:system/etc/bluetooth/bt_stack.conf \
     vendor/amazon/mantis/proprietary/etc/clatd.conf:system/etc/clatd.conf \
@@ -88,13 +87,18 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/lib/hw/amzn_drmprov.mt8695.so:system/lib/hw/amzn_drmprov.mt8695.so \
     vendor/amazon/mantis/proprietary/lib/hw/audio.a2dp.default.so:system/lib/hw/audio.a2dp.default.so \
     vendor/amazon/mantis/proprietary/lib/hw/audio.btle.default.so:system/lib/hw/audio.btle.default.so \
+    vendor/amazon/mantis/proprietary/lib/hw/audio.primary.default.so:system/lib/hw/audio.primary.default.so \
     vendor/amazon/mantis/proprietary/lib/hw/audio.proxy.default.so:system/lib/hw/audio.proxy.default.so \
+    vendor/amazon/mantis/proprietary/lib/hw/audio.r_submix.default.so:system/lib/hw/audio.r_submix.default.so \
     vendor/amazon/mantis/proprietary/lib/hw/audio.usb.default.so:system/lib/hw/audio.usb.default.so \
     vendor/amazon/mantis/proprietary/lib/hw/audio_policy.default.so:system/lib/hw/audio_policy.default.so \
     vendor/amazon/mantis/proprietary/lib/hw/audio_policy.stub.so:system/lib/hw/audio_policy.stub.so \
+    vendor/amazon/mantis/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
     vendor/amazon/mantis/proprietary/lib/hw/keystore.default.so:system/lib/hw/keystore.default.so \
+    vendor/amazon/mantis/proprietary/lib/hw/local_time.default.so:system/lib/hw/local_time.default.so \
     vendor/amazon/mantis/proprietary/lib/hw/perfboost.default.so:system/lib/hw/perfboost.default.so \
     vendor/amazon/mantis/proprietary/lib/hw/perfboost.mt8695.so:system/lib/hw/perfboost.mt8695.so \
+    vendor/amazon/mantis/proprietary/lib/hw/power.default.so:system/lib/hw/power.default.so \
     vendor/amazon/mantis/proprietary/lib/hw/thermal.mt8695.so:system/lib/hw/thermal.mt8695.so \
     vendor/amazon/mantis/proprietary/lib/hw/tv_input.default.so:system/lib/hw/tv_input.default.so \
     vendor/amazon/mantis/proprietary/lib/hw/vibrator.default.so:system/lib/hw/vibrator.default.so \
@@ -105,6 +109,7 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/lib/libaudioeffect_jni.so:system/lib/libaudioeffect_jni.so \
     vendor/amazon/mantis/proprietary/lib/libaudioflinger.so:system/lib/libaudioflinger.so \
     vendor/amazon/mantis/proprietary/lib/libaudiopolicyenginedefault.so:system/lib/libaudiopolicyenginedefault.so \
+    vendor/amazon/mantis/proprietary/lib/libaudiopolicymanager.so:system/lib/libaudiopolicymanager.so \
     vendor/amazon/mantis/proprietary/lib/libaudiopolicymanagerdefault.so:system/lib/libaudiopolicymanagerdefault.so \
     vendor/amazon/mantis/proprietary/lib/libaudiopolicyservice.so:system/lib/libaudiopolicyservice.so \
     vendor/amazon/mantis/proprietary/lib/libaudioresampler.so:system/lib/libaudioresampler.so \
@@ -135,11 +140,14 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/lib/libmediacodecloggerservice.so:system/lib/libmediacodecloggerservice.so \
     vendor/amazon/mantis/proprietary/lib/libmediadrm.so:system/lib/libmediadrm.so \
     vendor/amazon/mantis/proprietary/lib/libmediaextension.so:system/lib/libmediaextension.so \
+    vendor/amazon/mantis/proprietary/lib/libmiracast_sink.so:system/lib/libmiracast_sink.so \
     vendor/amazon/mantis/proprietary/lib/libms12.so:system/lib/libms12.so \
+    vendor/amazon/mantis/proprietary/lib/libnativeloader.so:system/lib/libnativeloader.so \
     vendor/amazon/mantis/proprietary/lib/libopus.so:system/lib/libopus.so \
     vendor/amazon/mantis/proprietary/lib/libopus_jni.AMAZON.so:system/lib/libopus_jni.AMAZON.so \
     vendor/amazon/mantis/proprietary/lib/libopus_jni.so:system/lib/libopus_jni.so \
     vendor/amazon/mantis/proprietary/lib/libopuscodec.so:system/lib/libopuscodec.so \
+    vendor/amazon/mantis/proprietary/lib/libpryon.so:system/lib/libpryon.so \
     vendor/amazon/mantis/proprietary/lib/libqservice.so:system/lib/libqservice.so \
     vendor/amazon/mantis/proprietary/lib/libradio.so:system/lib/libradio.so \
     vendor/amazon/mantis/proprietary/lib/libradio_metadata.so:system/lib/libradio_metadata.so \
@@ -175,116 +183,121 @@ PRODUCT_COPY_FILES += \
     vendor/amazon/mantis/proprietary/lib/soundfx/libldnhncr.so:system/lib/soundfx/libldnhncr.so \
     vendor/amazon/mantis/proprietary/lib/soundfx/libreverbwrapper.so:system/lib/soundfx/libreverbwrapper.so \
     vendor/amazon/mantis/proprietary/lib/soundfx/libvisualizer.so:system/lib/soundfx/libvisualizer.so \
-    vendor/amazon/mantis/proprietary/vendor/app/AtciService/AtciService.apk:vendor/app/AtciService/AtciService.apk \
-    vendor/amazon/mantis/proprietary/vendor/bin/autokd:vendor/bin/autokd \
-    vendor/amazon/mantis/proprietary/vendor/bin/gsm0710muxd:vendor/bin/gsm0710muxd \
-    vendor/amazon/mantis/proprietary/vendor/bin/gsm0710muxdmd2:vendor/bin/gsm0710muxdmd2 \
-    vendor/amazon/mantis/proprietary/vendor/bin/hdmi:vendor/bin/hdmi \
-    vendor/amazon/mantis/proprietary/vendor/bin/kisd:vendor/bin/kisd \
-    vendor/amazon/mantis/proprietary/vendor/bin/mfv_ut:vendor/bin/mfv_ut \
-    vendor/amazon/mantis/proprietary/vendor/bin/rpmb_svc:vendor/bin/rpmb_svc \
-    vendor/amazon/mantis/proprietary/vendor/bin/securetime:vendor/bin/securetime \
-    vendor/amazon/mantis/proprietary/vendor/bin/spm_loader:vendor/bin/spm_loader \
-    vendor/amazon/mantis/proprietary/vendor/etc/.tp/.ht120.mtc:vendor/etc/.tp/.ht120.mtc \
-    vendor/amazon/mantis/proprietary/vendor/etc/.tp/thermal.conf:vendor/etc/.tp/thermal.conf \
-    vendor/amazon/mantis/proprietary/vendor/etc/.tp/thermal.off.conf:vendor/etc/.tp/thermal.off.conf \
-    vendor/amazon/mantis/proprietary/vendor/etc/audio_device.xml:vendor/etc/audio_device.xml \
-    vendor/amazon/mantis/proprietary/vendor/etc/audio_em.xml:vendor/etc/audio_em.xml \
-    vendor/amazon/mantis/proprietary/vendor/etc/audio_policy.conf:vendor/etc/audio_policy.conf \
-    vendor/amazon/mantis/proprietary/vendor/etc/custom.conf:vendor/etc/custom.conf \
-    vendor/amazon/mantis/proprietary/vendor/etc/init/rpmb_svc.rc:vendor/etc/init/rpmb_svc.rc \
-    vendor/amazon/mantis/proprietary/vendor/etc/init/securetime.rc:vendor/etc/init/securetime.rc \
-    vendor/amazon/mantis/proprietary/vendor/etc/mixer_paths.xml:vendor/etc/mixer_paths.xml \
-    vendor/amazon/mantis/proprietary/vendor/etc/mtk_omx_core.cfg:vendor/etc/mtk_omx_core.cfg \
-    vendor/amazon/mantis/proprietary/vendor/etc/mtklog-config.prop:vendor/etc/mtklog-config.prop \
-    vendor/amazon/mantis/proprietary/vendor/etc/partition_permission.sh:vendor/etc/partition_permission.sh \
-    vendor/amazon/mantis/proprietary/vendor/etc/recovery.fstab:vendor/etc/recovery.fstab \
-    vendor/amazon/mantis/proprietary/vendor/etc/slp_conf:vendor/etc/slp_conf \
-    vendor/amazon/mantis/proprietary/vendor/etc/throttle.sh:vendor/etc/throttle.sh \
-    vendor/amazon/mantis/proprietary/vendor/firmware/EEPROM_MT7668.bin:vendor/firmware/EEPROM_MT7668.bin \
-    vendor/amazon/mantis/proprietary/vendor/firmware/TxPwrLimit_MT76x8.dat:vendor/firmware/TxPwrLimit_MT76x8.dat \
-    vendor/amazon/mantis/proprietary/vendor/firmware/WIFI_RAM_CODE2_SDIO_MT7668.bin:vendor/firmware/WIFI_RAM_CODE2_SDIO_MT7668.bin \
-    vendor/amazon/mantis/proprietary/vendor/firmware/WIFI_RAM_CODE_MT7668.bin:vendor/firmware/WIFI_RAM_CODE_MT7668.bin \
-    vendor/amazon/mantis/proprietary/vendor/firmware/mt7668_patch_e2_hdr.bin:vendor/firmware/mt7668_patch_e2_hdr.bin \
-    vendor/amazon/mantis/proprietary/vendor/firmware/rgx.fw.signed:vendor/firmware/rgx.fw.signed \
-    vendor/amazon/mantis/proprietary/vendor/firmware/wifi.cfg:vendor/firmware/wifi.cfg \
-    vendor/amazon/mantis/proprietary/vendor/firmware/wifi_mt7668_driver.sh:vendor/firmware/wifi_mt7668_driver.sh \
-    vendor/amazon/mantis/proprietary/vendor/lib/egl/libEGL_POWERVR_ROGUE.so:vendor/lib/egl/libEGL_POWERVR_ROGUE.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/egl/libGLESv1_CM_POWERVR_ROGUE.so:vendor/lib/egl/libGLESv1_CM_POWERVR_ROGUE.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/egl/libGLESv2_POWERVR_ROGUE.so:vendor/lib/egl/libGLESv2_POWERVR_ROGUE.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/hw/audio.primary.mt8695.so:vendor/lib/hw/audio.primary.mt8695.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/hw/gatekeeper.mt8695.so:vendor/lib/hw/gatekeeper.mt8695.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/hw/gralloc.mt8695.so:vendor/lib/hw/gralloc.mt8695.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/hw/gralloc.mt8695.sw.so:vendor/lib/hw/gralloc.mt8695.sw.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/hw/hdmi_cec.mt8695.so:vendor/lib/hw/hdmi_cec.mt8695.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/hw/hwcomposer.mt8695.so:vendor/lib/hw/hwcomposer.mt8695.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/hw/keystore.mt8695.so:vendor/lib/hw/keystore.mt8695.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/hw/memtrack.mt8695.so:vendor/lib/hw/memtrack.mt8695.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libIMGegl.so:vendor/lib/libIMGegl.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libMtkOmxCore.so:vendor/lib/libMtkOmxCore.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libMtkOmxMp3Dec.so:vendor/lib/libMtkOmxMp3Dec.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libMtkOmxVdecEx.so:vendor/lib/libMtkOmxVdecEx.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libMtkOmxVenc.so:vendor/lib/libMtkOmxVenc.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libOpenCL.so:vendor/lib/libOpenCL.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libPVROCL.so:vendor/lib/libPVROCL.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libPVRScopeServices.so:vendor/lib/libPVRScopeServices.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/lib_uree_mtk_crypto.so:vendor/lib/lib_uree_mtk_crypto.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/lib_uree_mtk_modular_drm.so:vendor/lib/lib_uree_mtk_modular_drm.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/lib_uree_mtk_video_secure_al.so:vendor/lib/lib_uree_mtk_video_secure_al.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libaed.so:vendor/lib/libaed.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libatciserv_jni.so:vendor/lib/libatciserv_jni.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libaudiocomponentengine.so:vendor/lib/libaudiocomponentengine.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libaudiocustparam.so:vendor/lib/libaudiocustparam.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libaudiodcrflt.so:vendor/lib/libaudiodcrflt.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libaudiohalopen.so:vendor/lib/libaudiohalopen.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libavsync.so:vendor/lib/libavsync.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libblisrc.so:vendor/lib/libblisrc.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libblisrc32.so:vendor/lib/libblisrc32.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libbluetooth_mtk_pure.so:vendor/lib/libbluetooth_mtk_pure.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libbwc.so:vendor/lib/libbwc.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libccci_util.so:vendor/lib/libccci_util.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libcustom_nvram.so:vendor/lib/libcustom_nvram.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libcvsd_mtk.so:vendor/lib/libcvsd_mtk.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libdpframework.so:vendor/lib/libdpframework.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libeac3dec.so:vendor/lib/libeac3dec.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libfbm.so:vendor/lib/libfbm.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libfile_op.so:vendor/lib/libfile_op.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libglslcompiler.so:vendor/lib/libglslcompiler.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libgralloc_extra.so:vendor/lib/libgralloc_extra.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libgui_ext.so:vendor/lib/libgui_ext.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libhdmi.so:vendor/lib/libhdmi.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libhdmiservice.so:vendor/lib/libhdmiservice.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libion_mtk.so:vendor/lib/libion_mtk.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libm4u.so:vendor/lib/libm4u.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libmemtrack_GL.so:vendor/lib/libmemtrack_GL.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libmrdump.so:vendor/lib/libmrdump.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libmsbc_mtk.so:vendor/lib/libmsbc_mtk.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libmtk_drvb.so:vendor/lib/libmtk_drvb.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libmtk_eglx.so:vendor/lib/libmtk_eglx.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libmtk_gralloc_common.so:vendor/lib/libmtk_gralloc_common.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libnvram.so:vendor/lib/libnvram.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libnvram_daemon_callback.so:vendor/lib/libnvram_daemon_callback.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libnvram_platform.so:vendor/lib/libnvram_platform.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libnvramagentclient.so:vendor/lib/libnvramagentclient.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/liboemcrypto.so:vendor/lib/liboemcrypto.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libplayready.so:vendor/lib/libplayready.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libpostprocessingFW.so:vendor/lib/libpostprocessingFW.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libpvrANDROID_WSEGL.so:vendor/lib/libpvrANDROID_WSEGL.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libspeech_enh_lib.so:vendor/lib/libspeech_enh_lib.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libsrv_um.so:vendor/lib/libsrv_um.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libstagefright_soft_eac3dec.so:vendor/lib/libstagefright_soft_eac3dec.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libstagefrighthw.so:vendor/lib/libstagefrighthw.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libtz_uree.so:vendor/lib/libtz_uree.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libudf.so:vendor/lib/libudf.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libufwriter.so:vendor/lib/libufwriter.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libui_ext.so:vendor/lib/libui_ext.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/liburee_meta_drmkeyinstall_v2.so:vendor/lib/liburee_meta_drmkeyinstall_v2.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libusc.so:vendor/lib/libusc.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libvcodec_oal.so:vendor/lib/libvcodec_oal.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libvcodec_utility.so:vendor/lib/libvcodec_utility.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libvcodecdrv.so:vendor/lib/libvcodecdrv.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/libvdec_app.so:vendor/lib/libvdec_app.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/mediadrm/libdrmclearkeyplugin.so:vendor/lib/mediadrm/libdrmclearkeyplugin.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/mediadrm/libmockdrmcryptoplugin.so:vendor/lib/mediadrm/libmockdrmcryptoplugin.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/mediadrm/libplayreadydrmplugin.so:vendor/lib/mediadrm/libplayreadydrmplugin.so \
-    vendor/amazon/mantis/proprietary/vendor/lib/mediadrm/libwvdrmengine.so:vendor/lib/mediadrm/libwvdrmengine.so
+    vendor/amazon/mantis/proprietary/priv-app/DisplayMirroring/DisplayMirroring.apk:system/priv-app/DisplayMirroring/DisplayMirroring.apk \
+    vendor/amazon/mantis/proprietary/vendor/app/AtciService/AtciService.apk:system/vendor/app/AtciService/AtciService.apk \
+    vendor/amazon/mantis/proprietary/vendor/bin/autokd:system/vendor/bin/autokd \
+    vendor/amazon/mantis/proprietary/vendor/bin/gsm0710muxd:system/vendor/bin/gsm0710muxd \
+    vendor/amazon/mantis/proprietary/vendor/bin/gsm0710muxdmd2:system/vendor/bin/gsm0710muxdmd2 \
+    vendor/amazon/mantis/proprietary/vendor/bin/hdmi:system/vendor/bin/hdmi \
+    vendor/amazon/mantis/proprietary/vendor/bin/kisd:system/vendor/bin/kisd \
+    vendor/amazon/mantis/proprietary/vendor/bin/mfv_ut:system/vendor/bin/mfv_ut \
+    vendor/amazon/mantis/proprietary/vendor/bin/rpmb_svc:system/vendor/bin/rpmb_svc \
+    vendor/amazon/mantis/proprietary/vendor/bin/securetime:system/vendor/bin/securetime \
+    vendor/amazon/mantis/proprietary/vendor/bin/spm_loader:system/vendor/bin/spm_loader \
+    vendor/amazon/mantis/proprietary/vendor/bin/uree_fps_test:system/vendor/bin/uree_fps_test \
+    vendor/amazon/mantis/proprietary/vendor/etc/.tp/.ht120.mtc:system/vendor/etc/.tp/.ht120.mtc \
+    vendor/amazon/mantis/proprietary/vendor/etc/.tp/thermal.conf:system/vendor/etc/.tp/thermal.conf \
+    vendor/amazon/mantis/proprietary/vendor/etc/.tp/thermal.off.conf:system/vendor/etc/.tp/thermal.off.conf \
+    vendor/amazon/mantis/proprietary/vendor/etc/audio_device.xml:system/vendor/etc/audio_device.xml \
+    vendor/amazon/mantis/proprietary/vendor/etc/audio_em.xml:system/vendor/etc/audio_em.xml \
+    vendor/amazon/mantis/proprietary/vendor/etc/audio_policy.conf:system/vendor/etc/audio_policy.conf \
+    vendor/amazon/mantis/proprietary/vendor/etc/custom.conf:system/vendor/etc/custom.conf \
+    vendor/amazon/mantis/proprietary/vendor/etc/init/rpmb_svc.rc:system/vendor/etc/init/rpmb_svc.rc \
+    vendor/amazon/mantis/proprietary/vendor/etc/init/securetime.rc:system/vendor/etc/init/securetime.rc \
+    vendor/amazon/mantis/proprietary/vendor/etc/mixer_paths.xml:system/vendor/etc/mixer_paths.xml \
+    vendor/amazon/mantis/proprietary/vendor/etc/mtk_omx_core.cfg:system/vendor/etc/mtk_omx_core.cfg \
+    vendor/amazon/mantis/proprietary/vendor/etc/mtklog-config.prop:system/vendor/etc/mtklog-config.prop \
+    vendor/amazon/mantis/proprietary/vendor/etc/partition_permission.sh:system/vendor/etc/partition_permission.sh \
+    vendor/amazon/mantis/proprietary/vendor/etc/public.libraries.txt:system/vendor/etc/public.libraries.txt \
+    vendor/amazon/mantis/proprietary/vendor/etc/recovery.fstab:system/vendor/etc/recovery.fstab \
+    vendor/amazon/mantis/proprietary/vendor/etc/slp_conf:system/vendor/etc/slp_conf \
+    vendor/amazon/mantis/proprietary/vendor/etc/throttle.sh:system/vendor/etc/throttle.sh \
+    vendor/amazon/mantis/proprietary/vendor/firmware/EEPROM_MT7668.bin:system/vendor/firmware/EEPROM_MT7668.bin \
+    vendor/amazon/mantis/proprietary/vendor/firmware/TxPwrLimit_MT76x8.dat:system/vendor/firmware/TxPwrLimit_MT76x8.dat \
+    vendor/amazon/mantis/proprietary/vendor/firmware/WIFI_RAM_CODE2_SDIO_MT7668.bin:system/vendor/firmware/WIFI_RAM_CODE2_SDIO_MT7668.bin \
+    vendor/amazon/mantis/proprietary/vendor/firmware/WIFI_RAM_CODE_MT7668.bin:system/vendor/firmware/WIFI_RAM_CODE_MT7668.bin \
+    vendor/amazon/mantis/proprietary/vendor/firmware/mt7668_patch_e2_hdr.bin:system/vendor/firmware/mt7668_patch_e2_hdr.bin \
+    vendor/amazon/mantis/proprietary/vendor/firmware/rgx.fw.signed:system/vendor/firmware/rgx.fw.signed \
+    vendor/amazon/mantis/proprietary/vendor/firmware/wifi.cfg:system/vendor/firmware/wifi.cfg \
+    vendor/amazon/mantis/proprietary/vendor/firmware/wifi_mt7668_driver.sh:system/vendor/firmware/wifi_mt7668_driver.sh \
+    vendor/amazon/mantis/proprietary/vendor/lib/egl/libEGL_POWERVR_ROGUE.so:system/vendor/lib/egl/libEGL_POWERVR_ROGUE.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/egl/libGLESv1_CM_POWERVR_ROGUE.so:system/vendor/lib/egl/libGLESv1_CM_POWERVR_ROGUE.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/egl/libGLESv2_POWERVR_ROGUE.so:system/vendor/lib/egl/libGLESv2_POWERVR_ROGUE.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/hw/audio.primary.mt8695.so:system/vendor/lib/hw/audio.primary.mt8695.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/hw/gatekeeper.mt8695.so:system/vendor/lib/hw/gatekeeper.mt8695.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/hw/gralloc.mt8695.so:system/vendor/lib/hw/gralloc.mt8695.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/hw/gralloc.mt8695.sw.so:system/vendor/lib/hw/gralloc.mt8695.sw.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/hw/hdmi_cec.mt8695.so:system/vendor/lib/hw/hdmi_cec.mt8695.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/hw/hwcomposer.mt8695.so:system/vendor/lib/hw/hwcomposer.mt8695.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/hw/keystore.mt8695.so:system/vendor/lib/hw/keystore.mt8695.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/hw/memtrack.mt8695.so:system/vendor/lib/hw/memtrack.mt8695.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libIMGegl.so:system/vendor/lib/libIMGegl.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libMtkOmxCore.so:system/vendor/lib/libMtkOmxCore.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libMtkOmxMp3Dec.so:system/vendor/lib/libMtkOmxMp3Dec.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libMtkOmxVdecEx.so:system/vendor/lib/libMtkOmxVdecEx.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libMtkOmxVenc.so:system/vendor/lib/libMtkOmxVenc.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libOpenCL.so:system/vendor/lib/libOpenCL.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libPVROCL.so:system/vendor/lib/libPVROCL.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libPVRScopeServices.so:system/vendor/lib/libPVRScopeServices.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/lib_uree_mtk_crypto.so:system/vendor/lib/lib_uree_mtk_crypto.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/lib_uree_mtk_modular_drm.so:system/vendor/lib/lib_uree_mtk_modular_drm.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/lib_uree_mtk_video_secure_al.so:system/vendor/lib/lib_uree_mtk_video_secure_al.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libaed.so:system/vendor/lib/libaed.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libatciserv_jni.so:system/vendor/lib/libatciserv_jni.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libaudiocomponentengine.so:system/vendor/lib/libaudiocomponentengine.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libaudiocustparam.so:system/vendor/lib/libaudiocustparam.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libaudiodcrflt.so:system/vendor/lib/libaudiodcrflt.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libaudiohalopen.so:system/vendor/lib/libaudiohalopen.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libavsync.so:system/vendor/lib/libavsync.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libblisrc.so:system/vendor/lib/libblisrc.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libblisrc32.so:system/vendor/lib/libblisrc32.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libbluetooth_mtk_pure.so:system/vendor/lib/libbluetooth_mtk_pure.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libbwc.so:system/vendor/lib/libbwc.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libccci_util.so:system/vendor/lib/libccci_util.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libcustom_nvram.so:system/vendor/lib/libcustom_nvram.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libcvsd_mtk.so:system/vendor/lib/libcvsd_mtk.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libdpframework.so:system/vendor/lib/libdpframework.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libeac3dec.so:system/vendor/lib/libeac3dec.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libfbm.so:system/vendor/lib/libfbm.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libfile_op.so:system/vendor/lib/libfile_op.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libglslcompiler.so:system/vendor/lib/libglslcompiler.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libgralloc_extra.so:system/vendor/lib/libgralloc_extra.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libgui_ext.so:system/vendor/lib/libgui_ext.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libhdmi.so:system/vendor/lib/libhdmi.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libhdmiservice.so:system/vendor/lib/libhdmiservice.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libion_mtk.so:system/vendor/lib/libion_mtk.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libm4u.so:system/vendor/lib/libm4u.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libmemtrack_GL.so:system/vendor/lib/libmemtrack_GL.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libmrdump.so:system/vendor/lib/libmrdump.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libmsbc_mtk.so:system/vendor/lib/libmsbc_mtk.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libmtk_drvb.so:system/vendor/lib/libmtk_drvb.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libmtk_eglx.so:system/vendor/lib/libmtk_eglx.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libmtk_gralloc_common.so:system/vendor/lib/libmtk_gralloc_common.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libnvram.so:system/vendor/lib/libnvram.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libnvram_daemon_callback.so:system/vendor/lib/libnvram_daemon_callback.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libnvram_platform.so:system/vendor/lib/libnvram_platform.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libnvramagentclient.so:system/vendor/lib/libnvramagentclient.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/liboemcrypto.so:system/vendor/lib/liboemcrypto.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libplayready.so:system/vendor/lib/libplayready.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libpostprocessingFW.so:system/vendor/lib/libpostprocessingFW.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libpvrANDROID_WSEGL.so:system/vendor/lib/libpvrANDROID_WSEGL.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libspeech_enh_lib.so:system/vendor/lib/libspeech_enh_lib.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libsrv_um.so:system/vendor/lib/libsrv_um.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libstagefright_soft_eac3dec.so:system/vendor/lib/libstagefright_soft_eac3dec.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libstagefrighthw.so:system/vendor/lib/libstagefrighthw.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libtz_uree.so:system/vendor/lib/libtz_uree.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libudf.so:system/vendor/lib/libudf.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libufwriter.so:system/vendor/lib/libufwriter.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libui_ext.so:system/vendor/lib/libui_ext.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/liburee_fps.so:system/vendor/lib/liburee_fps.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/liburee_meta_drmkeyinstall_v2.so:system/vendor/lib/liburee_meta_drmkeyinstall_v2.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libusc.so:system/vendor/lib/libusc.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libvcodec_oal.so:system/vendor/lib/libvcodec_oal.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libvcodec_utility.so:system/vendor/lib/libvcodec_utility.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libvcodecdrv.so:system/vendor/lib/libvcodecdrv.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/libvdec_app.so:system/vendor/lib/libvdec_app.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/mediadrm/libdrmclearkeyplugin.so:system/vendor/lib/mediadrm/libdrmclearkeyplugin.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/mediadrm/libdrmfpsplugin.so:system/vendor/lib/mediadrm/libdrmfpsplugin.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/mediadrm/libmockdrmcryptoplugin.so:system/vendor/lib/mediadrm/libmockdrmcryptoplugin.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/mediadrm/libplayreadydrmplugin.so:system/vendor/lib/mediadrm/libplayreadydrmplugin.so \
+    vendor/amazon/mantis/proprietary/vendor/lib/mediadrm/libwvdrmengine.so:system/vendor/lib/mediadrm/libwvdrmengine.so

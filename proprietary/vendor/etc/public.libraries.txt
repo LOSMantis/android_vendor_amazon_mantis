@@ -1,0 +1,3 @@
+libaudiostream_jni.so
+libwakewordserver_jni.so
+libopus_jni.so
