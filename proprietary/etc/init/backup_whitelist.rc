@@ -1,4 +1,0 @@
-service backup_whitelist /system/bin/backup_whitelist
-    class main
-    disabled
-    oneshot

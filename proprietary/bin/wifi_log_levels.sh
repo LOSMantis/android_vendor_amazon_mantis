@@ -39,10 +39,11 @@ function set_wlan_interface ()
     P2P_INTERFACE=`$IFCONFIG |grep p2p- |cut -d " " -f1`
     P2P_STATUS=`$IW $P2P_INTERFACE link | head -n1 | cut -d " " -f1`
 
-    # check wlan and p2p connection status to decide which interface to get stats
-    if [[ ( "$WLAN_STATUS" != "Connected" ) && ( "$P2P_STATUS" = "Connected" ) ]]; then
-        WLAN_INTERFACE=$P2P_INTERFACE
-    fi
+    ## disable this check and use wlan0 for all stats (except ifconfig) until proper p2p stats were available
+#    # check wlan and p2p connection status to decide which interface to get stats
+#    if [[ ( "$WLAN_STATUS" != "Connected" ) && ( "$P2P_STATUS" = "Connected" ) ]]; then
+#        WLAN_INTERFACE=$P2P_INTERFACE
+#    fi
 }
 
 function iwpriv_conn_status ()
@@ -165,8 +166,14 @@ function ifconfig_kernel_stat ()
 {
     ETHERNET=`$IFCONFIG eth0 | grep "inet "`
     IFS=$'\t\n'
+
+    # select either wlan0 or p2p interface for ifconfig stat
     if [ -z "$ETHERNET" ]; then
-        STAT=($($IFCONFIG $WLAN_INTERFACE))
+        if [[ ( "$WLAN_STATUS" != "Connected" ) && ( "$P2P_STATUS" = "Connected" ) ]]; then
+            STAT=($($IFCONFIG $P2P_INTERFACE))
+        else
+            STAT=($($IFCONFIG $WLAN_INTERFACE))
+        fi
     else
         STAT=($($IFCONFIG eth0))
     fi
@@ -485,13 +492,13 @@ function log_kdm_rssi_level
     if [ $CHIPNSS = "2" ]; then
         kdm_rssi_level ${dataRssi2}
         rssibar2=$RSSIBAR
-        logStr="wifiKDM:RSSILevel:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata3\"#\"Data\"$\"metadata2\"#\"${BANDWIDTH}\"$\"metadata1\"#\"${rssibar2} bar\"$\"metadata\"#\"${rssibar} bar\"$\"key\"#\"${CHANNEL}\"}};DV;1:HI"
+        logStr="wifiKDM:RSSILevel:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata3\"#\"Data\"$\"metadata2\"#\"${BANDWIDTH}\"$\"metadata1\"#\"${rssibar2} bar\"$\"metadata\"#\"${rssibar} bar\"$\"key\"#\"${CHANNEL}\"}};DV;1:NR"
     else
-        logStr="wifiKDM:RSSILevel:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata3\"#\"Data\"$\"metadata2\"#\"${BANDWIDTH}\"$\"metadata\"#\"${rssibar} bar\"$\"key\"#\"${CHANNEL}\"}};DV;1:HI"
+        logStr="wifiKDM:RSSILevel:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata3\"#\"Data\"$\"metadata2\"#\"${BANDWIDTH}\"$\"metadata\"#\"${rssibar} bar\"$\"key\"#\"${CHANNEL}\"}};DV;1:NR"
     fi
     $TOOLBOX log -v -t "Vlog" $logStr
 
-    logStr="wifiKDM:RSSILevel:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata3\"#\"Beacon\"$\"metadata2\"#\"${BANDWIDTH}\"$\"metadata\"#\"${beacon_rssibar} bar\"$\"key\"#\"${CHANNEL}\"}};DV;1:HI"
+    logStr="wifiKDM:RSSILevel:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata3\"#\"Beacon\"$\"metadata2\"#\"${BANDWIDTH}\"$\"metadata\"#\"${beacon_rssibar} bar\"$\"key\"#\"${CHANNEL}\"}};DV;1:NR"
     $TOOLBOX log -v -t "Vlog" $logStr
 }
 
@@ -526,9 +533,9 @@ function log_kdm_noise_level
     if [ $CHIPNSS = "2" ]; then
         kdm_noise_level ${maxNoise2}
         noisebar2=$NOISEBAR
-        logStr="wifiKDM:NoiseLevel:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata3\"#\"${CoexFlag}\"$\"metadata2\"#\"${TVStatus}\"$\"metadata1\"#\"${noisebar2} bar\"$\"metadata\"#\"${noisebar} bar\"$\"key\"#\"${CHANNEL}\"}};DV;1:HI"
+        logStr="wifiKDM:NoiseLevel:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata3\"#\"${CoexFlag}\"$\"metadata2\"#\"${TVStatus}\"$\"metadata1\"#\"${noisebar2} bar\"$\"metadata\"#\"${noisebar} bar\"$\"key\"#\"${CHANNEL}\"}};DV;1:NR"
     else
-        logStr="wifiKDM:NoiseLevel:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata\"#\"${noisebar} bar\"$\"key\"#\"${CHANNEL}\"}};DV;1:HI"
+        logStr="wifiKDM:NoiseLevel:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata\"#\"${noisebar} bar\"$\"key\"#\"${CHANNEL}\"}};DV;1:NR"
     fi
     $TOOLBOX log -v -t "Vlog" $logStr
 }
@@ -566,9 +573,9 @@ function log_kdm_snr_level
         snr=$(($rssi2 - $maxNoise2))
         kdm_snr_level ${snr}
         snrbar2=$SNRBAR
-        logStr="wifiKDM:SNRLevel:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata3\"#\"${snrbar2} bar\"$\"metadata2\"#\"${mcs}\"$\"metadata1\"#\"${rssibar} bar\"$\"metadata\"#\"${snrbar} bar\"$\"key\"#\"${CHANNEL}\"}};DV;1:HI"
+        logStr="wifiKDM:SNRLevel:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata3\"#\"${snrbar2} bar\"$\"metadata2\"#\"${mcs}\"$\"metadata1\"#\"${rssibar} bar\"$\"metadata\"#\"${snrbar} bar\"$\"key\"#\"${CHANNEL}\"}};DV;1:NR"
     else
-        logStr="wifiKDM:SNRLevel:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata2\"#\"${mcs}\"$\"metadata1\"#\"${snrbar} bar\"$\"metadata\"#\"${rssibar} bar\"$\"key\"#\"${CHANNEL}\"}};DV;1:HI"
+        logStr="wifiKDM:SNRLevel:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata2\"#\"${mcs}\"$\"metadata1\"#\"${snrbar} bar\"$\"metadata\"#\"${rssibar} bar\"$\"key\"#\"${CHANNEL}\"}};DV;1:NR"
     fi
     $TOOLBOX log -v -t "Vlog" $logStr
 }
@@ -594,22 +601,22 @@ function log_kdm_band
         wifimode="11n"
     fi
 
-    logStr="wifiKDM:Band:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata1\"#\"${wifimode}\"$\"metadata\"#\"${BANDWIDTH}\"$\"key\"#\"${CHANNEL}\"}};DV;1:HI"
+    logStr="wifiKDM:Band:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata1\"#\"${wifimode}\"$\"metadata\"#\"${BANDWIDTH}\"$\"key\"#\"${CHANNEL}\"}};DV;1:NR"
     $TOOLBOX log -v -t "Vlog" $logStr
 }
 
 function log_kdm_phyrate
 {
-    logStr="wifiKDM:PhyRate:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata3\"#\"${wifimode}\"$\"metadata2\"#\"${snrbar} bar\"$\"metadata1\"#\"${rssibar} bar\"$\"metadata\"#\"${LASTTXRATE}\"$\"key\"#\"Tx\"}};DV;1:HI"
+    logStr="wifiKDM:PhyRate:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata3\"#\"${wifimode}\"$\"metadata2\"#\"${snrbar} bar\"$\"metadata1\"#\"${rssibar} bar\"$\"metadata\"#\"${LASTTXRATE}\"$\"key\"#\"Tx\"}};DV;1:NR"
     $TOOLBOX log -v -t "Vlog" $logStr
-    logStr="wifiKDM:PhyRate:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata3\"#\"${wifimode}\"$\"metadata2\"#\"${snrbar} bar\"$\"metadata1\"#\"${rssibar} bar\"$\"metadata\"#\"${LASTRXRATE}\"$\"key\"#\"Rx\"}};DV;1:HI"
+    logStr="wifiKDM:PhyRate:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata3\"#\"${wifimode}\"$\"metadata2\"#\"${snrbar} bar\"$\"metadata1\"#\"${rssibar} bar\"$\"metadata\"#\"${LASTRXRATE}\"$\"key\"#\"Rx\"}};DV;1:NR"
     $TOOLBOX log -v -t "Vlog" $logStr
 }
 
 function log_kdm_txop
 {
     TVStatus="Unknown"
-    logStr="wifiKDM:TXOP:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata2\"#\"${rssibar} bar\"$\"metadata1\"#\"${TVStatus}\"$\"metadata\"#\"${TXOPSCALE}\"$\"key\"#\"${CHANNEL}\"}};DV;1:HI"
+    logStr="wifiKDM:Txop:fgtracking=false;DV;1,Counter=1;CT;1,unit=count;DV;1,metadata=!{\"d\"#{\"metadata2\"#\"${rssibar} bar\"$\"metadata1\"#\"${TVStatus}\"$\"metadata\"#\"${TXOPSCALE}\"$\"key\"#\"${CHANNEL}\"}};DV;1:NR"
     $TOOLBOX log -v -t "Vlog" $logStr
 }
 
